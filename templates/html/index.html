@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>City weather</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container mx-auto border border-success " style="width: 400px;margin:50px;padding: 50px">
+    <div class="display-2">City Weather</div>
+    <form>
+        <div class="form-group">
+          <label for="city">City :</label>
+          <input type="text" id="city" value="{{ request.GET.city }}" placeholder="Enter City" name="city">
+          <small  class="form-text text-muted">This data is fetched from google.com</small>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Find</button>
+      </form>
+    <div class="container" style="margin:30px">
+        {% if city %}
+            <h3>{{ city }}</h3>
+        {% endif %}
+        {% if time %}
+            <h3>{{ time }}</h3>
+        {% endif %}
+        {% if temp %}
+                <h3>{{ temp }}° C</h3>
+        {% endif %}
+        {% if weather %}
+            <h3>{{ weather }}</h3>
+        {% endif %}
+    </div>
+</div>
+<div class="card-group">
+   
+        {% if week %}
+        
+        {% for day in week %}
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;margin:2px; ">
+            <div class="card-header"><div class="day">{{ day.day }}</div></div>
+            <div class="card-body">
+                
+                <h5 class="card-title"><div class="temp1">{{ day.temper.0 }}°C</div><div class="temp2">{{ day.temper.1 }}°F</div></h5>
+                <p class="card-text"><div class="temp1">{{ day.temper.2 }}°C</div><div class="temp2">{{ day.temper.3 }}°F</div></p>
+            </div>
+        </div>
+        
+        {% endfor %}
+        {% endif %}
+    
+</div>
+</body>
+</html>
