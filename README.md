@@ -3,8 +3,8 @@
 Django web App that scrapes data from google.com and shows on weather page.
 
  **Screenshots in repo**
-  home.png 
-  weather.png 
+ - home.png 
+ - weather.png 
  
 ## Requirements to install
 1) Python
@@ -15,6 +15,6 @@ Django web App that scrapes data from google.com and shows on weather page.
 
 ## Steps to run
 
-**Clone the repo**
-**Intall requirements**
-**run "python manage.py runserver"**
+- **Clone the repo**
+- **Intall requirements**
+- **run "python manage.py runserver"**
